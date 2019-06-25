@@ -1,10 +1,10 @@
 <?php
 
-use DataStruct\LRU\LFUCache;
+use DataStruct\LRU\LRUCache;
 
 require_once __DIR__ . '/../../vendor/autoload.php';
 
-$lru = new LFUCache(2);
+$lru = new LRUCache(2);
 
 $lru->put(1, 1);
 $lru->put(2, 2);
