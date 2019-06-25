@@ -1,0 +1,42 @@
+* insatll
+  composer dump-autoload -o
+
+* skiplist
+- 时间：2019-04-26 11:41:54
+
+- 参考
+  - https://www.geeksforgeeks.org/skip-list/
+  - https://www.geeksforgeeks.org/skip-list-set-2-insertion/
+  - https://www.geeksforgeeks.org/skip-list-set-3-searching-deletion/
+
+- 实现：
+  - delete
+  - insert
+  - search
+  
+* LRU Cache
+  https://leetcode.com/problems/lru-cache/
+
+  做这种题一定要在纸上先把思路理顺
+  get(key)
+  1. key 不存在：直接返回 -1
+  2. key 存在：需要将 key 对应的节点移动到双向链表首部
+    
+  put(key, value)
+  1. key 存在：更新 value，同时将 key 对应的节点移动到双向链表首部
+  2. key 不存在
+  2.1 链表满了：删除链表的最后一个，调用链表的 prepend 操作
+  2.2 链表没满，直接调用链表的 prepend 操作
+
+* LFU
+  https://leetcode.com/problems/lfu-cache/
+
+  get(key)
+  1. key 不存在：直接返回 -1
+  2. key 存在：更新 freq，同时将 key 对应的节点根据 freq 往链表前面移动（这里要注意一下：移动的时候需要先判断一下需不需要移动）
+
+  put(key, value)  
+  1. key 存在：更新 value，同时将 key 对应的节点根据 freq 往链表前面移动（和 get 一样）
+  2. key 不存在：
+  2.1 链表满了：删除链表的最后一个，然后往链表 append 一个节点，再向前移动该节点
+  2.2 往链表 append 一个节点，再向前移动该节点

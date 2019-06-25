@@ -24,7 +24,7 @@ class SkipList
         return (double)(random_int(0, 100) / 100);
     }
 
-    public function randomLevel()
+    private function randomLevel()
     {
         $r = $this->rand();
         $level = 1;
@@ -39,7 +39,7 @@ class SkipList
     /**
      * @return Node[]
      */
-    public function findLevelPrev($data)
+    private function findLevelPrev($data)
     {
         $prev = [];
         $cur = $this->head;
