@@ -2,7 +2,7 @@
 
 use DataStruct\SkipList\SkipList;
 
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 $sk = new SkipList(0.5, 3);
 $sk->insert(3);
