@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\KSort\Heap;
+namespace DataStruct\Heap;
 
 class HeapNode
 {

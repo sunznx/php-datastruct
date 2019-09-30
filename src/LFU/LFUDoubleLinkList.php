@@ -1,18 +1,18 @@
 <?php
 
-namespace DataStruct\LFU;
+namespace DataStruct;
 
-class DoubleLinkList
+class LFUDoubleLinkList
 {
-    /** @var Node */
+    /** @var LFUNode */
     private $head;
 
-    /** @var Node */
+    /** @var LFUNode */
     private $tail;
 
     private $size;
 
-    /** @var Node[] */
+    /** @var LFUNode[] */
     private $map = [];
 
     private $freq = [];

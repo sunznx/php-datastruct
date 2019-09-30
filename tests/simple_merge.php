@@ -1,6 +1,6 @@
 <?php
 
-use DataStruct\KSort\FileOperation;
+use DataStruct\FileOperation;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use DataStruct\LSD\LSD;
+use DataStruct\LSD;
 
 $arr = [170, 45, 43, 75, 90, 802, 2, 24, 66];
 

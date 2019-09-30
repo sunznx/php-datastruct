@@ -1,18 +1,18 @@
 <?php
 
-namespace DataStruct\LRU;
+namespace DataStruct;
 
-class DoubleLinkList
+class LRUDoubleLinkList
 {
-    /** @var Node */
+    /** @var LRUNode */
     private $head;
 
-    /** @var Node */
+    /** @var LRUNode */
     private $tail;
 
     private $size;
 
-    /** @var Node[] */
+    /** @var LRUNode[] */
     private $map = [];
 
     public function __construct()
@@ -40,7 +40,7 @@ class DoubleLinkList
         $this->size -= 1;
     }
 
-    private function prependNode(Node $node)
+    private function prependNode(LRUNode $node)
     {
         if ($this->head == null) {
             $this->head = $node;
@@ -84,7 +84,7 @@ class DoubleLinkList
 
     public function putValue($key, $value)
     {
-        $this->map[$key] = new Node($key, $value);
+        $this->map[$key] = new LRUNode($key, $value);
         $this->size += 1;
         $this->prependNode($this->map[$key]);
     }

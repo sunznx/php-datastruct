@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\KSort\WinnerTree;
+namespace DataStruct\WinnerTree;
 
 class WinnerTreeNode
 {

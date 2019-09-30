@@ -1,10 +1,10 @@
 <?php
 
-namespace DataStruct\LRU;
+namespace DataStruct;
 
 class LRUCache
 {
-    /** @var DoubleLinkList $list */
+    /** @var LFUDoubleLinkList $list */
     private $list;
 
     private $capacity;
@@ -12,7 +12,7 @@ class LRUCache
     public function __construct($capacity)
     {
         $this->capacity = $capacity;
-        $this->list = new DoubleLinkList();
+        $this->list = new LFUDoubleLinkList();
     }
 
     public function get($key)

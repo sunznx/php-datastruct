@@ -1,6 +1,6 @@
 <?php
 
-use DataStruct\SkipList\SkipList;
+use DataStruct\SkipList;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

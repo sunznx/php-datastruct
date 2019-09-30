@@ -1,11 +1,10 @@
 {
     "autoload": {
-        "psr-4": {
-            "DataStruct\\": "src/",
-            "DataStruct\\Test\\": "tests/"
-        }
+        "classmap": [
+            "src"
+        ]
     },
-    "require": {
-        "phpunit/phpunit": "^7.5"
+    "require-dev": {
+        "phpunit/phpunit": "^8.3"
     }
 }

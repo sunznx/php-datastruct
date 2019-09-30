@@ -1,13 +1,13 @@
 <?php
 
-namespace DataStruct\SkipList;
+namespace DataStruct;
 
-class Node
+class SkipListNode
 {
     public $data;
     public $level;
 
-    /** @var Node[] */
+    /** @var SkipListNode[] */
     public $next = [];
 
     public function __construct($data, $level)

@@ -2,7 +2,7 @@
 
 namespace DataStruct\Test;
 
-use DataStruct\KSort\FileOperation;
+use DataStruct\FileOperation;
 use PHPUnit\Framework\TestCase;
 
 class KSortTest extends TestCase
@@ -13,17 +13,13 @@ class KSortTest extends TestCase
     private const WINNER_FILE = __DIR__ . "/output/winner.txt";
     private const LOSER_FILE = __DIR__ . "/output/loser.txt";
 
-    public function setUp()
-    {
-    }
-
     public function test_readAll()
     {
         $paths = glob(static::FILES);
 
         /** @var FileOperation[] $files */
         $files = [];
-        foreach ($paths as $k => $path) {
+        foreach ($paths as $path) {
             $files[] = new FileOperation($path);
         }
 

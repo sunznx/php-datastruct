@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use DataStruct\KSort\Heap\Heap;
-use DataStruct\KSort\KSortMerge;
+use DataStruct\Heap\Heap;
+use DataStruct\KSortMerge;
 const FILES = __DIR__ . "/output/m_*.txt";
 const TO_FILE = __DIR__ . "/output/heap.txt";
 

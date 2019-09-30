@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\KSort\LoserTree;
+namespace DataStruct\LoserTree;
 
 class LoserTreeNode
 {

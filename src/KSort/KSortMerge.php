@@ -1,9 +1,9 @@
 <?php
 
-namespace DataStruct\KSort;
+namespace DataStruct;
 
-use DataStruct\KSort\Interfaces\HeapInterfaces;
-use DataStruct\KSort\Interfaces\KSortMergeInterface;
+use DataStruct\Interfaces\HeapInterfaces;
+use DataStruct\Interfaces\KSortMergeInterface;
 
 class KSortMerge implements KSortMergeInterface
 {

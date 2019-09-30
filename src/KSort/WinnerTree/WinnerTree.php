@@ -1,8 +1,8 @@
 <?php
 
-namespace DataStruct\KSort\WinnerTree;
+namespace DataStruct\WinnerTree;
 
-use DataStruct\KSort\Abstracts\AbstractHeap;
+use DataStruct\Abstracts\AbstractHeap;
 
 class WinnerTree extends AbstractHeap
 {

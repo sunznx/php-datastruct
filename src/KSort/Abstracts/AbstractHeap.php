@@ -1,8 +1,8 @@
 <?php
 
-namespace DataStruct\KSort\Abstracts;
+namespace DataStruct\Abstracts;
 
-use DataStruct\KSort\Interfaces\HeapInterfaces;
+use DataStruct\Interfaces\HeapInterfaces;
 
 abstract class AbstractHeap implements HeapInterfaces
 {

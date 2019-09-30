@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\KSort;
+namespace DataStruct;
 
 class FileOperation
 {

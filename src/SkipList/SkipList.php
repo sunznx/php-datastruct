@@ -1,10 +1,10 @@
 <?php
 
-namespace DataStruct\SkipList;
+namespace DataStruct;
 
 class SkipList
 {
-    /** @var Node */
+    /** @var SkipListNode */
     public $head;
 
     public $p;
@@ -16,7 +16,7 @@ class SkipList
         $this->p = $p;
         $this->maxLevel = $maxLevel;
         $this->curLevel = 0;
-        $this->head = new Node(-1, $maxLevel);
+        $this->head = new SkipListNode(-1, $maxLevel);
     }
 
     private function rand()
@@ -37,7 +37,7 @@ class SkipList
     }
 
     /**
-     * @return Node[]
+     * @return SkipListNode[]
      */
     private function findLevelPrev($data)
     {
@@ -65,7 +65,7 @@ class SkipList
             $this->curLevel = $level;
         }
 
-        $n = new Node($data, $level);
+        $n = new SkipListNode($data, $level);
         for ($i = 0; $i < $level; $i++) {
             $n->next[$i] = $prev[$i]->next[$i];
             $prev[$i]->next[$i] = $n;

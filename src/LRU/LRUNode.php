@@ -1,13 +1,13 @@
 <?php
 
-namespace DataStruct\LFU;
+namespace DataStruct;
 
-class Node
+class LRUNode
 {
-    /** @var Node */
+    /** @var LRUNode */
     public $prev;
 
-    /** @var Node */
+    /** @var LRUNode */
     public $next;
 
     public $key;

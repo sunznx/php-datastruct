@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\LSD;
+namespace DataStruct;
 
 class LSD
 {
@@ -31,18 +31,26 @@ class LSD
 
     private static function sortedByRadix($arr, $radix)
     {
-        $container = \array_fill(0, 10, []);
+        $n = \count($arr);
+        $maxRadix = 10;
+
+        $aux = \array_fill(0, $n, 0);
+        $map = \array_fill(0, $maxRadix+1, 0);
+
         foreach ($arr as $num) {
             $digit = static::getDigitByRadix($num, $radix);
-            $container[$digit][] = $num;
+            $map[$digit+1] += 1;
         }
 
-        $res = [];
-        for ($i = 0; $i <= 9; $i++) {
-            foreach ($container[$i] as $num) {
-                $res[] = $num;
-            }
+        for ($i = 1; $i < $maxRadix; $i++) {
+            $map[$i] += $map[$i-1];
         }
-        return $res;
+
+        foreach ($arr as $num) {
+            $digit = static::getDigitByRadix($num, $radix);
+            $idx = $map[$digit]++;
+            $aux[$idx] = $num;
+        }
+        return $aux;
     }
 }

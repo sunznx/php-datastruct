@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\KSort\Interfaces;
+namespace DataStruct\Interfaces;
 
 interface HeapInterfaces
 {

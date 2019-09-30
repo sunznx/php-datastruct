@@ -1,8 +1,8 @@
 <?php
 
-namespace DataStruct\KSort\Heap;
+namespace DataStruct\Heap;
 
-use DataStruct\KSort\Abstracts\AbstractHeap;
+use DataStruct\Abstracts\AbstractHeap;
 
 class Heap extends AbstractHeap
 {

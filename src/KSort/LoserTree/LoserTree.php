@@ -1,8 +1,8 @@
 <?php
 
-namespace DataStruct\KSort\LoserTree;
+namespace DataStruct\LoserTree;
 
-use DataStruct\KSort\Abstracts\AbstractHeap;
+use DataStruct\Abstracts\AbstractHeap;
 
 class LoserTree extends AbstractHeap
 {

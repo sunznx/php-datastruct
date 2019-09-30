@@ -1,10 +1,13 @@
 <?php
 
-use DataStruct\MSD\MSD;
+use DataStruct\MSD;
+use DataStruct\MSD1;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-$arr = [170, 45, 43, 75, 90, 802, 2, 24, 66];
-// $arr = [117, 4, 3, 7, 9, 8, 2, 4, 6, 22];
+$arr = [];
+for ($i = 0; $i < 100000; $i++) {
+    $arr[] = random_int(0, 9999999);
+}
 
-print_r(MSD::sort($arr));
+sort($arr);
