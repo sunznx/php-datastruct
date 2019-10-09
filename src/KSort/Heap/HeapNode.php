@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\Heap;
+namespace DataStruct;
 
 class HeapNode
 {

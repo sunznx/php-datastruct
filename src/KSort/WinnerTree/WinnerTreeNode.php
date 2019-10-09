@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\WinnerTree;
+namespace DataStruct;
 
 class WinnerTreeNode
 {

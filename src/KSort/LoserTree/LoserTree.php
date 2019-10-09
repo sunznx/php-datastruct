@@ -1,8 +1,6 @@
 <?php
 
-namespace DataStruct\LoserTree;
-
-use DataStruct\Abstracts\AbstractHeap;
+namespace DataStruct;
 
 class LoserTree extends AbstractHeap
 {

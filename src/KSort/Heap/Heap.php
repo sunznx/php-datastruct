@@ -1,8 +1,6 @@
 <?php
 
-namespace DataStruct\Heap;
-
-use DataStruct\Abstracts\AbstractHeap;
+namespace DataStruct;
 
 class Heap extends AbstractHeap
 {

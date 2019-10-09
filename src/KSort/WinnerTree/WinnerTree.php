@@ -1,8 +1,6 @@
 <?php
 
-namespace DataStruct\WinnerTree;
-
-use DataStruct\Abstracts\AbstractHeap;
+namespace DataStruct;
 
 class WinnerTree extends AbstractHeap
 {

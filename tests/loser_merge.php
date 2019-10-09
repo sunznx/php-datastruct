@@ -3,7 +3,7 @@
 require_once __DIR__ . '/../vendor/autoload.php';
 
 use DataStruct\KSortMerge;
-use DataStruct\LoserTree\LoserTree;
+use DataStruct\LoserTree;
 const FILES = __DIR__ . "/output/m_*.txt";
 const TO_FILE = __DIR__ . "/output/loser.txt";
 

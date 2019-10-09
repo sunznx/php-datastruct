@@ -1,6 +1,6 @@
 <?php
 
-use DataStruct\LFU\LFUCache;
+use DataStruct\LFUCache;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 

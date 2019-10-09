@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\LoserTree;
+namespace DataStruct;
 
 class LoserTreeNode
 {

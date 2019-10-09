@@ -2,9 +2,6 @@
 
 namespace DataStruct;
 
-use DataStruct\Interfaces\HeapInterfaces;
-use DataStruct\Interfaces\KSortMergeInterface;
-
 class KSortMerge implements KSortMergeInterface
 {
     public $save_file;

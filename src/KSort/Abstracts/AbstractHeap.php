@@ -1,8 +1,6 @@
 <?php
 
-namespace DataStruct\Abstracts;
-
-use DataStruct\Interfaces\HeapInterfaces;
+namespace DataStruct;
 
 abstract class AbstractHeap implements HeapInterfaces
 {

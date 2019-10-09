@@ -1,6 +1,6 @@
 <?php
 
-namespace DataStruct\Interfaces;
+namespace DataStruct;
 
 interface HeapInterfaces
 {

@@ -1,8 +1,5 @@
 <?php
 
-use DataStruct\MSD;
-use DataStruct\MSD1;
-
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $arr = [];
