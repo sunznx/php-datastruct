@@ -101,22 +101,18 @@ class RadixTree
         $strIdx = 0;
         while (!empty($node)) {
             $matchIdx = $node->matchIdx($str, $strIdx);
-            if ($strIdx == $strLen) {
+            if ($strIdx == $strLen || $matchIdx == -1) {
                 break;
             }
 
-            if ($matchIdx != -1) {
-                if ($node->isCompressed) {
-                    if ($matchIdx + 1 == $node->size) {
-                        $node = $node->dataPtr[0];
-                    } else {
-                        break;
-                    }
+            if ($node->isCompressed) {
+                if ($matchIdx + 1 == $node->size) {
+                    $node = $node->dataPtr[0];
                 } else {
-                    $node = $node->dataPtr[$matchIdx];
+                    break;
                 }
             } else {
-                break;
+                $node = $node->dataPtr[$matchIdx];
             }
         }
         return new RadixTreeWalkParam($node, $matchIdx, $strIdx);
