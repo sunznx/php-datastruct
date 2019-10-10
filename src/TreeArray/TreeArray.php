@@ -23,6 +23,11 @@ class TreeArray
         $pre = $this->arr[$x];
         $this->arr[$x] = $value;
         $inc = $this->arr[$x] - $pre;
+        $this->updateIncrement($x, $inc);
+    }
+
+    public function updateIncrement($x, $inc)
+    {
         $n = \count($this->arr);
         while ($x < $n) {
             $this->c[$x] += $inc;
