@@ -11,8 +11,6 @@ class LoserTree extends AbstractHeap
 
     private $size;
 
-    public const MAX_VALUE = 0xfffffff;
-
     public function __construct()
     {
         $this->leaves = [];
