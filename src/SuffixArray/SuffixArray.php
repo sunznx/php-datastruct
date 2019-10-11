@@ -101,12 +101,8 @@ class SuffixArray
         for ($i = 1; $i < $this->n; $i++) {
             $curArrIdx = $saX[$i];
             $preArrIdx = $saX[$i - 1];
-            if ($this->x[$curArrIdx] == $this->x[$preArrIdx]) {
-                if ($this->y[$curArrIdx] == $this->y[$preArrIdx]) {
-                    $newX[$curArrIdx] = $r-1;
-                } else {
-                    $newX[$curArrIdx] = $r++;
-                }
+            if (($this->x[$curArrIdx] == $this->x[$preArrIdx]) && $this->y[$curArrIdx] == $this->y[$preArrIdx]) {
+                $newX[$curArrIdx] = $r-1;
             } else {
                 $newX[$curArrIdx] = $r++;
             }
