@@ -4,9 +4,7 @@ namespace DataStruct;
 
 class SuffixArray
 {
-    protected $n;
-    protected $str;
-
+    public $str;
     public $x;
     public $y;
     public $sa;
@@ -14,7 +12,6 @@ class SuffixArray
 
     public function __construct($str)
     {
-        $this->n = strlen($str);
         $this->str = $str;
         $this->maxTax = 27;
         $this->prework();
@@ -22,9 +19,9 @@ class SuffixArray
 
     private function prework()
     {
-        $n = $this->n;
+        $n = \strlen($this->str);
         $this->x = array_fill(0, 2 * $n, 0);
-        $this->y = array_fill(0, $n, 0);
+        $this->y = array_fill(0, 2 * $n, 0);
         $this->sa = array_fill(0, $n, 0);
 
         for ($i = 0; $i < $n; $i++) {
@@ -35,7 +32,7 @@ class SuffixArray
 
     private function computeSA()
     {
-        $n = $this->n;
+        $n = \strlen($this->str);
         $p = 1;
 
         while (!$this->isComputeSAok()) {
@@ -47,7 +44,7 @@ class SuffixArray
         }
 
         for ($i = 0; $i < $n; $i++) {
-            $this->sa[$i] = $this->x[$i]-1;
+            $this->sa[$i] = $this->x[$i] - 1;
         }
     }
 
@@ -59,12 +56,13 @@ class SuffixArray
 
     private function sortByXY()
     {
+        $n = \strlen($this->str);
         $taxX = array_fill(0, $this->maxTax + 1, 0);
         $taxY = array_fill(0, $this->maxTax + 1, 0);
-        $saY = array_fill(0, $this->n, 0);
-        $saX = array_fill(0, $this->n, 0);
+        $saY = array_fill(0, $n, 0);
+        $saX = array_fill(0, $n, 0);
 
-        for ($i = 0; $i < $this->n; $i++) {
+        for ($i = 0; $i < $n; $i++) {
             $taxY[$this->y[$i] + 1] += 1;
         }
 
@@ -72,13 +70,13 @@ class SuffixArray
             $taxY[$i] += $taxY[$i - 1];
         }
 
-        for ($i = 0; $i < $this->n; $i++) {
+        for ($i = 0; $i < $n; $i++) {
             $digit = $this->y[$i];
             $idx = $taxY[$digit]++;
             $saY[$idx] = $i;
         }
 
-        for ($i = 0; $i < $this->n; $i++) {
+        for ($i = 0; $i < $n; $i++) {
             $taxX[$this->x[$i] + 1] += 1;
         }
 
@@ -86,23 +84,23 @@ class SuffixArray
             $taxX[$i] += $taxX[$i - 1];
         }
 
-        for ($i = 0; $i < $this->n; $i++) {
+        for ($i = 0; $i < $n; $i++) {
             $r = $saY[$i];
             $digit = $this->x[$r];
             $idx = $taxX[$digit]++;
             $saX[$idx] = $r;
         }
 
-        $newX = array_fill(0, 2 * $this->n, 0);
+        $newX = array_fill(0, 2 * $n, 0);
 
         $r = 1;
         $newX[$saX[0]] = $r++;
 
-        for ($i = 1; $i < $this->n; $i++) {
+        for ($i = 1; $i < $n; $i++) {
             $curArrIdx = $saX[$i];
             $preArrIdx = $saX[$i - 1];
             if (($this->x[$curArrIdx] == $this->x[$preArrIdx]) && $this->y[$curArrIdx] == $this->y[$preArrIdx]) {
-                $newX[$curArrIdx] = $r-1;
+                $newX[$curArrIdx] = $r - 1;
             } else {
                 $newX[$curArrIdx] = $r++;
             }
@@ -113,11 +111,12 @@ class SuffixArray
 
     private function isComputeSAok()
     {
+        $n = \strlen($this->str);
         $tax = array_fill(0, $this->maxTax + 1, 0);
-        for ($i = 0; $i < $this->n; $i++) {
-            $first = $this->x[$i];
-            $tax[$first] += 1;
-            if ($tax[$first] >= 2) {
+        for ($i = 0; $i < $n; $i++) {
+            $v = $this->x[$i];
+            $tax[$v] += 1;
+            if ($tax[$v] >= 2) {
                 return false;
             }
         }
