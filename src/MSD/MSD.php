@@ -42,7 +42,7 @@ class MSD
             $map[$digit + 1] += 1;
         }
 
-        for ($i = 1; $i < $maxRadix; $i++) {
+        for ($i = 1; $i <= $maxRadix; $i++) {
             $map[$i] += $map[$i - 1];
         }
 
