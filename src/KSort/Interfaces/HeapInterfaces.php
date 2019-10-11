@@ -8,5 +8,5 @@ interface HeapInterfaces
     public function getTopIdx();
     public function modifyTop($data);
     public function push($data);
-    public function isFull();
+    public function build();
 }

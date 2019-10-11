@@ -9,23 +9,19 @@ class WinnerTree extends AbstractHeap
     /** @var WinnerTreeNode[] */
     public $tree = [];
 
-    private $capacity;
     private $size;
-    private $treeSize;
 
     public const MAX_VALUE = 0xfffffff;
 
-    public function __construct($capacity)
+    public function __construct()
     {
-        $this->capacity = $capacity;
-        $this->treeSize = 2 * $capacity - 1;
         $this->leaves = [];
         $this->size = 0;
     }
 
-    private function build()
+    public function build()
     {
-        $leavesCount = $this->capacity;
+        $leavesCount = $this->size;
         $nonLeavesCount = $leavesCount - 1;
 
         $firstNonLeavesIndex = 0;
@@ -51,7 +47,7 @@ class WinnerTree extends AbstractHeap
 
     private function adjust($idx)
     {
-        $leavesCount = $this->capacity;
+        $leavesCount = $this->size;
         $nonLeavesCount = $leavesCount - 1;
         $treeIdx = $idx + $nonLeavesCount;
         $this->tree[$treeIdx]->idx = $idx;
@@ -76,10 +72,6 @@ class WinnerTree extends AbstractHeap
     {
         $this->leaves[$this->size] = $data;
         $this->size += 1;
-
-        if ($this->isFull()) {
-            $this->build();
-        }
     }
 
     public function getTopData()
@@ -90,11 +82,6 @@ class WinnerTree extends AbstractHeap
     public function getTopIdx()
     {
         return $this->tree[0]->idx;
-    }
-
-    public function isFull()
-    {
-        return $this->capacity == $this->size;
     }
 
     private function getDataByIdx($idx)

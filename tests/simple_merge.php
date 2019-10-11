@@ -19,5 +19,5 @@ foreach ($paths as $path) {
 }
 \sort($data);
 
-file_put_contents(TO_FILE, pack('N*', $data));
+file_put_contents(TO_FILE, pack('N*', ...$data));
 echo memory_get_usage() - $start_memo . PHP_EOL;

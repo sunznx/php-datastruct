@@ -13,6 +13,7 @@ class KSortMerge implements KSortMergeInterface
     private $heap;
 
     public const MAX_VALUE = 0xfffffff;
+    public const MIN_VALUE = -0xfffffff;
 
     public function __construct($paths, HeapInterfaces $heap, $save_file)
     {
@@ -29,27 +30,27 @@ class KSortMerge implements KSortMergeInterface
 
     public function merge()
     {
-        $idx = 0;
-        $cnt = 0;
+        $n = \count($this->fileOperations);
+        $cnt = $n;
+        $minValueCnt = $n;
+        for ($i = 0; $i < $n; $i++) {
+            $this->heap->push(static::MIN_VALUE);
+            $this->heap->build();
+        }
 
-        while ($cnt != 0 || $idx < count($this->fileOperations)) {
-            if ($idx < \count($this->fileOperations)) {
-                if ($this->fileOperations[$idx]->isNotEOF()) {
-                    $this->heap->push($this->fileOperations[$idx]->next());
-                    $cnt += 1;
-                } else {
-                    $this->heap->push(static::MAX_VALUE);
-                }
-                $idx += 1;
+        while ($cnt > 0) {
+            $topData = $this->heap->getTopData();
+            $topIdx = $this->heap->getTopIdx();
+            if ($this->fileOperations[$topIdx]->isEOF()) {
+                $this->heap->modifyTop(static::MAX_VALUE);
+                $cnt -= 1;
             } else {
-                $topData = $this->heap->getTopData();
-                $topIdx = $this->heap->getTopIdx();
-                if ($this->fileOperations[$topIdx]->isEOF()) {
-                    $this->heap->modifyTop(static::MAX_VALUE);
-                    $cnt -= 1;
-                } else {
-                    $this->heap->modifyTop($this->fileOperations[$topIdx]->next());
-                }
+                $this->heap->modifyTop($this->fileOperations[$topIdx]->next());
+            }
+
+            if ($minValueCnt > 0) {
+                $minValueCnt--;
+            } else {
                 $this->appendValueToFile($topData);
             }
         }
@@ -61,7 +62,6 @@ class KSortMerge implements KSortMergeInterface
 
     private function appendValueToFile(&$value)
     {
-
         \file_put_contents($this->save_file, \pack('N', $value), \FILE_APPEND);
     }
 }

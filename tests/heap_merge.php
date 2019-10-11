@@ -10,7 +10,7 @@ const TO_FILE = __DIR__ . "/output/heap.txt";
 $start_memo = memory_get_usage();
 
 $paths = glob(FILES);
-$m = new KSortMerge($paths, new Heap(\count($paths)), TO_FILE);
+$m = new KSortMerge($paths, new Heap(), TO_FILE);
 $m->merge();
 
 echo memory_get_usage() - $start_memo . PHP_EOL;

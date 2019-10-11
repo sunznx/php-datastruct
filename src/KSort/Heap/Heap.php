@@ -9,19 +9,17 @@ class Heap extends AbstractHeap
      */
     public $nodes;
 
-    private $capacity;
     private $size;
 
-    public function __construct($capacity)
+    public function __construct()
     {
-        $this->capacity = $capacity;
         $this->size = 0;
         $this->nodes = [];
     }
 
-    private function build()
+    public function build()
     {
-        for ($x = $this->parent($this->capacity - 1); $x >= 0; $x--) {
+        for ($x = $this->parent($this->size - 1); $x >= 0; $x--) {
             $this->heapify($x);
         }
     }
@@ -32,10 +30,10 @@ class Heap extends AbstractHeap
         $r = $this->right($x);
 
         $ori = $x;
-        if ($l < $this->capacity && $this->nodes[$l]->data < $this->nodes[$x]->data) {
+        if ($l < $this->size && $this->nodes[$l]->data < $this->nodes[$x]->data) {
             $x = $l;
         }
-        if ($r < $this->capacity && $this->nodes[$r]->data < $this->nodes[$x]->data) {
+        if ($r < $this->size && $this->nodes[$r]->data < $this->nodes[$x]->data) {
             $x = $r;
         }
 
@@ -50,21 +48,12 @@ class Heap extends AbstractHeap
         [$this->nodes[$i], $this->nodes[$j]] = [$this->nodes[$j], $this->nodes[$i]];
     }
 
-    public function isFull()
-    {
-        return $this->size == $this->capacity;
-    }
-
     public function push($data)
     {
         $dataIdx = $this->size;
         $node = new HeapNode($data, $dataIdx);
         $this->nodes[$this->size] = $node;
         $this->size += 1;
-
-        if ($this->isFull()) {
-            $this->build();
-        }
     }
 
     public function modifyTop($data)
