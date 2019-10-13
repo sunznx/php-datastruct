@@ -92,7 +92,7 @@ class RadixTree
     /**
      * @return RadixTreeWalkParam
      */
-    public function raxLowWalk($str)
+    private function raxLowWalk($str)
     {
         $node = $this->root;
 
@@ -116,5 +116,15 @@ class RadixTree
             }
         }
         return new RadixTreeWalkParam($node, $matchIdx, $strIdx);
+    }
+
+    public function seek()
+    {
+
+    }
+
+    public function seekEnd()
+    {
+
     }
 }
